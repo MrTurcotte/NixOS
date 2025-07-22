@@ -1,0 +1,33 @@
+{
+  description = "Basic System Flake";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    stable-diffusion-webui = {
+        url = "https://github.com/AUTOMATIC1111/stable-diffusion-webui";
+        rev = "v1.10.1"; # Replace with the current version
+    };
+
+  };
+
+  outputs = { self, nixpkgs, stable-diffusion-webui }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+  in
+  {
+    nixosConfigurations = {
+      myNixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system; };
+        modules = [
+          ./configuration.nix
+        ];
+      };
+    };
+  };
+}
