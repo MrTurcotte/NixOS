@@ -17,7 +17,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
-#    lynx
+    lynx
     geany
     cura-appimage
     spotify
