@@ -17,8 +17,8 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
-    lynx
-    geany
+#    lynx
+#    geany
     cura-appimage
     spotify
     openscad
