@@ -18,7 +18,7 @@
 
   environment.systemPackages = with pkgs; [
 #    lynx
-#    geany
+    geany
     cura-appimage
     spotify
     openscad
