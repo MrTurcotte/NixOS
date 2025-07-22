@@ -17,7 +17,7 @@
   in
   {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      nixos = pkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
         modules = [
           ./configuration.nix
