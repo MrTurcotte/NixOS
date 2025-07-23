@@ -8,9 +8,9 @@
   services.flatpak.enable = true;
   services.udev.packages = [
     pkgs.android-udev-rules
+    pkgs.via
   ];
   services.hardware.openrgb.enable = true;
-  services.udev.packages = [ pkgs.via ];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
