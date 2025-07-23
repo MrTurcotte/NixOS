@@ -54,5 +54,8 @@
     winetricks
     wineWowPackages.waylandFull  
     google-chrome
+    sxiv
+    mpv
+    vlc
   ];
 }
