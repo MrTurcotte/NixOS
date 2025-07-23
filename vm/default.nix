@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  user = "dave";
+  user = { "dave" };
 in
 
 {
