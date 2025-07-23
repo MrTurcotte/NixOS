@@ -14,6 +14,7 @@
       ./fonts
       ./printing
       ./ollama
+      ./vm
     ];
 
   nix = {
