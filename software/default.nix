@@ -3,12 +3,14 @@
 {
   nixpkgs.config.cudaSupport = true;
 
+  hardware.keyboard.qmk.enable = true;
+
   services.flatpak.enable = true;
   services.udev.packages = [
     pkgs.android-udev-rules
   ];
   services.hardware.openrgb.enable = true;
-  
+  services.udev.packages = [ pkgs.via ];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -17,6 +19,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    via
     gparted
     lynx
     geany
