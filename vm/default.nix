@@ -1,16 +1,12 @@
 { config, pkgs, ... }:
 
-let
-  user = { "dave" };
-in
-
 {
 
   # Enable dconf (System Management Tool)
   programs.dconf.enable = true;
 
   # Add user to libvirtd group
-  users.users.$user.extraGroups = [ "libvirtd" ];
+  users.users.dave.extraGroups = [ "libvirtd" ];
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
