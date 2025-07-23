@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  user = "dave";
+in
+
 {
 
   # Enable dconf (System Management Tool)
