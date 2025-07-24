@@ -13,7 +13,7 @@
     };
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      valhalla = nixpkgs.lib.nixosSystem {
         system = system;
         modules = [
           ./configuration.nix

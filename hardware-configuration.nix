@@ -14,14 +14,33 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c7ddedb9-30f8-47d2-967d-68f6042d604c";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/ff5ce78c-4f5c-4b34-9396-8c91ae52c317";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/ff5ce78c-4f5c-4b34-9396-8c91ae52c317";
+      fsType = "btrfs";
+      options = [ "subvol=@nixhome" ];
+    };
+
+  fileSystems."/home/dave/.local/share/Steam" =
+    { device = "/dev/disk/by-uuid/ff5ce78c-4f5c-4b34-9396-8c91ae52c317";
+      fsType = "btrfs";
+      options = [ "subvol=@steam" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/ff5ce78c-4f5c-4b34-9396-8c91ae52c317";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/29F0-07BD";
+    { device = "/dev/disk/by-uuid/0D9E-C69C";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices = [ ];
