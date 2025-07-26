@@ -3,12 +3,12 @@
 {
   nixpkgs.config.cudaSupport = true;
 
-#  hardware.keyboard.qmk.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   services.flatpak.enable = true;
   services.udev.packages = [
     pkgs.android-udev-rules
-#    pkgs.via
+    pkgs.via
   ];
   services.hardware.openrgb.enable = true;
 
@@ -19,8 +19,9 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    python
     neovim
-#    via
+    via
     gparted
 #    lynx
     geany
