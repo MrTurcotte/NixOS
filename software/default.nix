@@ -19,7 +19,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
-    python
+    python3
     neovim
     via
     gparted
