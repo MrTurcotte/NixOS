@@ -15,6 +15,7 @@
       ./printing
 #      ./ollama
       ./vm
+      ./3dprint
     ];
 
   nix = {
