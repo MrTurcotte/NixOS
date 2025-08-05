@@ -24,7 +24,7 @@
     '';
   };
 
-  zramswap.enable = true;
+  zramSwap.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
