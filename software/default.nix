@@ -19,6 +19,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    heroic
     python3
     neovim
     via
