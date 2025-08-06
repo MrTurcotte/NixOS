@@ -26,7 +26,7 @@
 
   zramSwap.enable = true;
   hardware.sane.enable = true;
-
+  services.saned.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
