@@ -19,6 +19,8 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    kdePackages.skanlite
+    nh
     python3
     neovim
     via
