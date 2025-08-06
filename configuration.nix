@@ -25,6 +25,7 @@
   };
 
   zramSwap.enable = true;
+  zramSwap.memoryPercent = 25;
   hardware.sane.enable = true;
   services.saned.enable = true;
 
