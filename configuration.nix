@@ -25,6 +25,8 @@
   };
 
   zramSwap.enable = true;
+  hardware.sane.enable = true;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -98,7 +100,9 @@
     extraGroups = [ 
       "networkmanager" 
       "wheel"
-      "adbusers" 
+      "adbusers"
+      "scanner"
+      "lp" 
     ];
     packages = with pkgs; [
       kdePackages.kate
