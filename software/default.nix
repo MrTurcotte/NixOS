@@ -19,6 +19,7 @@
   programs.obs-studio.enable = true;
 
   environment.systemPackages = with pkgs; [
+    digikam
     bc
     ghostscript
     pdfsandwich
