@@ -106,6 +106,7 @@
       "adbusers"
       "scanner"
       "lp" 
+      "docker"
     ];
     packages = with pkgs; [
       kdePackages.kate
