@@ -1,12 +1,17 @@
  { config, pkgs, ... }:
  {
-    config.virtualisation.oci-containers.containers = {
-     stirling = {
-       image = "frooodle/s-pdf:latest";
-       ports = ["8080:8080"];
-       cmd = [
-       ];
-       autoStart = false;
-     };
-   };
+    virtualization.docker.enable = true;
+
+    virtualisation.oci-containers = {
+      backend = "docker";
+      containers = {
+        stirling = {
+          image = "frooodle/s-pdf:latest";
+          ports = ["8080:8080"];
+          cmd = [
+          ];
+          autoStart = false;
+        };
+      };
+    };
  }
