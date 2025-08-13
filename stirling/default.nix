@@ -6,11 +6,11 @@
       backend = "docker";
       containers = {
         stirling = {
-          image = "frooodle/s-pdf:latest";
+          image = "stirlingtools/stirling-pdf:latest-fat";
           ports = ["8080:8080"];
           cmd = [
           ];
-          autoStart = false;
+          autoStart = true;
         };
       };
     };
