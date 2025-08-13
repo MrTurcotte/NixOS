@@ -16,6 +16,8 @@
 #      ./ollama
       ./vm
       ./3dprint
+      ./stirling
+
     ];
 
   nix = {
