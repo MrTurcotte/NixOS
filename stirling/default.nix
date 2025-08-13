@@ -1,6 +1,6 @@
  { config, pkgs, ... }:
  {
-    virtualization.docker.enable = true;
+    virtualisation.docker.enable = true;
 
     virtualisation.oci-containers = {
       backend = "docker";
