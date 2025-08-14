@@ -28,7 +28,7 @@
           pkgs.libidn2
           pkgs.libepoxy 
         ];
-      });
+      })
     ];
   };
 
