@@ -21,14 +21,14 @@
     enable = true;
     binfmt = true;
     package = {
-      (pkgs.appimage-run.override {
+      pkgs.appimage-run.override {
         extraPkgs = pkgs: [ 
           pkgs.ffmpeg 
           pkgs.imagemagick 
           pkgs.libidn2
           pkgs.libepoxy 
         ];
-      });
+      };
     };
   };
 
