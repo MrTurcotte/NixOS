@@ -24,7 +24,10 @@
 
   environment.systemPackages = with pkgs; [
     (pkgs.appimage-run.override {
-      extraPkgs = pkgs: [ pkgs.libidn2 ];
+      extraPkgs = pkgs: [ 
+        pkgs.libidn2
+        pkgs.libepoxy 
+      ];
     })
 #    libidn2
 #    appimage-run
