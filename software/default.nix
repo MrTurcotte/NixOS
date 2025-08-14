@@ -23,6 +23,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    libidn2
 #    appimage-run
 #    digikam
     bc
