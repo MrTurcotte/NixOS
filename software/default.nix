@@ -17,9 +17,13 @@
   programs.adb.enable = true;
   programs.gamemode.enable = true;
   programs.obs-studio.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   environment.systemPackages = with pkgs; [
-    appimage-run
+#    appimage-run
 #    digikam
     bc
     ghostscript
