@@ -23,7 +23,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    libidn2
+    (pkgs.appimage-run.override {
+      extraPkgs = pkgs: [ pkgs.libidn2 ];
+    })
+#    libidn2
 #    appimage-run
 #    digikam
     bc
