@@ -35,7 +35,7 @@
     cudaPackages.cudatoolkit
 #    libidn2
 #    appimage-run
-#    digikam
+    digikam
     bc
     ghostscript
     pdfsandwich
