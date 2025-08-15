@@ -12,6 +12,7 @@
   ];
   services.hardware.openrgb.enable = true;
 
+  programs.nix-required-mounts.presets.nvidia-gpu.enable
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.adb.enable = true;
@@ -33,7 +34,7 @@
   environment.systemPackages = with pkgs; [
 #    libidn2
 #    appimage-run
-#    digikam
+    digikam
     bc
     ghostscript
     pdfsandwich
