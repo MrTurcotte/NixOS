@@ -12,7 +12,7 @@
   ];
   services.hardware.openrgb.enable = true;
 
-  programs.nix-required-mounts.presets.nvidia-gpu.enable
+  programs.nix-required-mounts.presets.nvidia-gpu.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.adb.enable = true;
