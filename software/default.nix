@@ -33,7 +33,7 @@
   };
 
   environment.variables = {
-    CUDAToolkit_ROOT = $(pkgs.cudatoolkit);
+    CUDAToolkit_ROOT = ${pkgs.cudatoolkit};
   };
 
   environment.systemPackages = with pkgs; [
