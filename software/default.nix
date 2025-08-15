@@ -32,13 +32,14 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cmake
     opencv
     cudaPackages.markForCudatoolkitRootHook
     cudaPackages.cudatoolkit
     cudaPackages.cuda_nvcc
 #    libidn2
 #    appimage-run
-    digikam
+#    digikam
     bc
     ghostscript
     pdfsandwich
