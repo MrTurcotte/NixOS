@@ -32,6 +32,10 @@
     };
   };
 
+  environment.variables = {
+    CUDAToolkit_ROOT = $(pkgs.cudatoolkit);
+  };
+
   environment.systemPackages = with pkgs; [
     cmake
     opencv
@@ -40,7 +44,7 @@
     cudaPackages.cuda_nvcc
 #    libidn2
 #    appimage-run
-    digikam
+#    digikam
     bc
     ghostscript
     pdfsandwich
