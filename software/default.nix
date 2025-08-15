@@ -32,6 +32,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    opencv
+    cudaPackages.cuda_compat
     cudaPackages.markForCudatoolkitRootHook
     cudaPackages.cudatoolkit
     cudaPackages.cuda_nvcc
