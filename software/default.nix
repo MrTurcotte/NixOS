@@ -33,6 +33,7 @@
 
   environment.systemPackages = with pkgs; [
     cudaPackages.cudatoolkit
+    cudaPackages.cuda_nvcc
 #    libidn2
 #    appimage-run
     digikam
