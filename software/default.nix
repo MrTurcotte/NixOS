@@ -2,6 +2,7 @@
 
 {
   nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   hardware.keyboard.qmk.enable = true;
 
