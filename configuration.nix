@@ -17,7 +17,7 @@
       ./vm
       ./3dprint
       ./stirling
-
+      ./zoom
     ];
 
   nix = {
