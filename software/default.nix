@@ -18,7 +18,13 @@
   programs.steam.gamescopeSession.enable = true;
   programs.adb.enable = true;
   programs.gamemode.enable = true;
-  programs.obs-studio.enable = true;
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      droidcam-obs
+    ];
+  };
   programs.appimage = {
     enable = true;
     binfmt = true;
