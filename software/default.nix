@@ -13,6 +13,7 @@
   ];
   services.hardware.openrgb.enable = true;
 
+  programs.zoom-us.enable = true;
   programs.nix-required-mounts.presets.nvidia-gpu.enable = true;
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
