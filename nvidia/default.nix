@@ -5,14 +5,6 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "575.64.05";
-      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-      sha256_aarch64 = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-      openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-      persistencedSha256 = lib.fakeSha256;
-    };
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
       libva-utils
@@ -58,6 +50,16 @@
 #    package = config.boot.kernelPackages.nvidiaPackages.production;
 #    package = config.boot.kernelPackages.nvidiaPackages.latest;
 #    package = nvidiaPackage;
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "575.64.05";
+      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+      sha256_aarch64 = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+      openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      persistencedSha256 = lib.fakeSha256;
+    };
+
+
   };
 
   environment.sessionVariables = {
