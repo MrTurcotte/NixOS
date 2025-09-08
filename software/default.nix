@@ -19,6 +19,8 @@
   programs.steam.gamescopeSession.enable = true;
   programs.adb.enable = true;
   programs.gamemode.enable = true;
+  programs.ccache.enable = true;
+  programs.firefox.enable = true;
 #  programs.obs-studio = {
 #    enable = true;
 #    enableVirtualCamera = true;
