@@ -26,6 +26,21 @@
     '';
   };
 
+  nix.settings = {
+    cores = 8;
+    max-jobs = 4;
+    use-ccache = true;
+  };
+
+  # Environment variables for ccache and CPU optimizations
+  environment.variables = {
+    CCACHE_DIR = "/var/cache/ccache";
+    CCACHE_MAXSIZE = "10G";
+    NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+    NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+    NIX_LDFLAGS = "-flto";
+  };
+
 #  nix.settings = {
 #    cores = 2; # Limit each individual build to use a maximum of 4 cores
 #    max-jobs = 4; # Allow a maximum of 2 builds to run in parallel
