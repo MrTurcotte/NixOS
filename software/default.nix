@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.cudaSupport = true;
+#  nixpkgs.config.cudaSupport = true;
   nixpkgs.config.nvidia.acceptLicense = true;
 
-  hardware.keyboard.qmk.enable = true;
+#  hardware.keyboard.qmk.enable = true;
 
   services.flatpak.enable = true;
   services.udev.packages = [
@@ -19,38 +19,38 @@
   programs.steam.gamescopeSession.enable = true;
   programs.adb.enable = true;
   programs.gamemode.enable = true;
-  programs.obs-studio = {
-    enable = true;
-    enableVirtualCamera = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      droidcam-obs
-    ];
+#  programs.obs-studio = {
+#    enable = true;
+#    enableVirtualCamera = true;
+#    plugins = with pkgs.obs-studio-plugins; [
+#      droidcam-obs
+#    ];
   };
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-    package = pkgs.appimage-run.override {
-      extraPkgs = pkgs: [ 
-        pkgs.ffmpeg 
-        pkgs.imagemagick 
-        pkgs.libidn2
-        pkgs.libepoxy 
-      ];
-    };
-  };
+#  programs.appimage = {
+#    enable = true;
+#    binfmt = true;
+#    package = pkgs.appimage-run.override {
+#      extraPkgs = pkgs: [ 
+#        pkgs.ffmpeg 
+#        pkgs.imagemagick 
+#        pkgs.libidn2
+#        pkgs.libepoxy 
+#      ];
+#    };
+#  };
 
-  environment.variables = {
-    CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
-    CUDATOOLKIT_ROOT = "${pkgs.cudatoolkit}";
-  };
+#  environment.variables = {
+#    CUDAToolkit_ROOT = "${pkgs.cudatoolkit}";
+#    CUDATOOLKIT_ROOT = "${pkgs.cudatoolkit}";
+#  };
 
   environment.systemPackages = with pkgs; [
     signal-cli
-    cmake
-    opencv
-    cudaPackages.markForCudatoolkitRootHook
-    cudaPackages.cudatoolkit
-    cudaPackages.cuda_nvcc
+#    cmake
+#    opencv
+#    cudaPackages.markForCudatoolkitRootHook
+#    cudaPackages.cudatoolkit
+#    cudaPackages.cuda_nvcc
 #    libidn2
 #    appimage-run
 #    digikam
@@ -65,7 +65,7 @@
     gparted
 #    lynx
     geany
-    cura-appimage
+#    cura-appimage
     spotify
     openscad
     htop

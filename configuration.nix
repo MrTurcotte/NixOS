@@ -14,10 +14,10 @@
       ./fonts
       ./printing
 #      ./ollama
-      ./vm
-      ./3dprint
-      ./stirling
-      ./zoom
+#      ./vm
+#      ./3dprint
+#      ./stirling
+#      ./zoom
     ];
 
   nix = {
