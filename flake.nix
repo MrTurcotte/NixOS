@@ -16,8 +16,7 @@
           CFLAGS = oldAttrs.CFLAGS + " ...";
           CXXFLAGS = oldAttrs.CXXFLAGS + " ...";
         });
-      };
-    };
+        };
 
       };
     };
