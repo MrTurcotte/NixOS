@@ -1,5 +1,5 @@
 {
-  description = "Basic System Flake";
+  description = "Optimized NixOS System Flake for Ryzen 7700";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -12,36 +12,39 @@
       config = { allowUnfree = true; };
     };
   in {
-nixosConfigurations = {
-  valhalla = nixpkgs.lib.nixosSystem {
-    system = system;
-    modules = [
-      ./configuration.nix
-      {
-        # CPU optimizations for local builds
-        nixpkgs.config = {
-          packageOverrides = pkgs: {
-            stdenv = pkgs.stdenv.override {
-              extraBuildFlags = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+    nixosConfigurations = {
+      valhalla = nixpkgs.lib.nixosSystem {
+        system = system;
+
+        modules = [
+          ./configuration.nix
+
+          # Inline module for optimizations and ccache
+          {
+            # CPU optimizations for locally-built packages
+            nixpkgs.config = {
+              packageOverrides = pkgs: {
+                stdenv = pkgs.stdenv.override {
+                  extraBuildFlags = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+                };
+              };
             };
-          };
-        };
 
-        # ccache
-        nix.settings = {
-          use-ccache = true;
-          cores = 8;
-          max-jobs = 4;
-        };
+            # ccache configuration
+            nix.settings = {
+              use-ccache = true;
+              cores = 8;       # Adjust to leave system responsive
+              max-jobs = 4;    # Adjust to avoid RAM saturation
+            };
 
-        environment.variables = {
-          CCACHE_DIR = "/var/cache/ccache";
-          CCACHE_MAXSIZE = "10G";
-        };
-      }
-    ];
-  };
-};
-
+            environment.variables = {
+              CCACHE_DIR = "/var/cache/ccache";
+              CCACHE_MAXSIZE = "10G";
+            };
+          }
+        ];
+      };
+    };
   };
 }
+
