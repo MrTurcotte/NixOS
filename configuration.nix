@@ -4,8 +4,10 @@
 
 { config, pkgs, ... }:
 
+
 let
-  myStdenv = pkgs.stdenv.overrideAttrs (oldAttrs: {
+  origStdenv = pkgs.stdenv;
+  myStdenv = origStdenv.overrideAttrs (oldAttrs: {
     CFLAGS = oldAttrs.CFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
     CXXFLAGS = oldAttrs.CXXFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
   });
@@ -42,13 +44,13 @@ in
   environment.variables = {
     CCACHE_DIR = "/var/cache/ccache";
     CCACHE_MAXSIZE = "10G";
-    NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
-    NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
-    NIX_LDFLAGS = "-flto";
+#    NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+#    NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+#    NIX_LDFLAGS = "-flto";
   };
 
 nixpkgs.config = {
-    packageOverrides = pkgs: {
+    packageOverrides = self: super: {
       stdenv = myStdenv;
     };
   };
