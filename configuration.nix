@@ -4,6 +4,13 @@
 
 { config, pkgs, ... }:
 
+let
+  myStdenv = pkgs.stdenv.overrideAttrs (oldAttrs: {
+    CFLAGS = oldAttrs.CFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+    CXXFLAGS = oldAttrs.CXXFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+  });
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -39,6 +46,13 @@
     NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
     NIX_LDFLAGS = "-flto";
   };
+
+nixpkgs.config = {
+    packageOverrides = pkgs: {
+      stdenv = myStdenv;
+    };
+  };
+
 
 #  nix.settings = {
 #    cores = 2; # Limit each individual build to use a maximum of 4 cores
