@@ -27,8 +27,8 @@
   };
 
   nix.settings = {
-    cores = 8; # Limit each individual build to use a maximum of 4 cores
-    max-jobs = 8; # Allow a maximum of 2 builds to run in parallel
+    cores = 2; # Limit each individual build to use a maximum of 4 cores
+    max-jobs = 4; # Allow a maximum of 2 builds to run in parallel
   };
 
   zramSwap.enable = true;
