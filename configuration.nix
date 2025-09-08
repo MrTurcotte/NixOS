@@ -26,6 +26,23 @@
     '';
   };
 
+nixpkgs.config = {
+  packageOverrides = pkgs: {
+    myStdenv = pkgs.stdenv.override {
+      cc = pkgs.gcc;
+      # optional: other customizations
+    };
+  };
+};
+
+# Set global compiler flags
+environment.variables = {
+  NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+  NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+};
+
+
+
   nix.settings = {
     cores = 8;
     max-jobs = 4;
