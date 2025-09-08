@@ -7,34 +7,34 @@
 
   outputs = { self, nixpkgs }: let
     system = "x86_64-linux";
+
+    # Import nixpkgs and override stdenv for CPU optimizations
     pkgs = import nixpkgs {
       system = system;
-      config = { allowUnfree = true; };
+      config = {
+        allowUnfree = true;
+
+        packageOverrides = pkgs: {
+          stdenv = pkgs.stdenv.overrideAttrs (old: {
+            CFLAGS = old.CFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+            CXXFLAGS = old.CXXFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+          });
+        };
+      };
     };
   in {
     nixosConfigurations = {
-      valhalla = nixpkgs.lib.nixosSystem {
+      valhalla = pkgs.lib.nixosSystem {
         system = system;
-
         modules = [
           ./configuration.nix
 
-          # Inline module for optimizations and ccache
+          # Inline module for Nix settings and environment variables
           {
-            # CPU optimizations for locally-built packages
-            nixpkgs.config = {
-              packageOverrides = pkgs: {
-                stdenv = pkgs.stdenv.override {
-                  extraBuildFlags = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
-                };
-              };
-            };
-
-            # ccache configuration
             nix.settings = {
               use-ccache = true;
-              cores = 8;       # Adjust to leave system responsive
-              max-jobs = 4;    # Adjust to avoid RAM saturation
+              cores = 8;       # Limit CPU usage for background builds
+              max-jobs = 4;    # Limit parallel jobs to avoid RAM saturation
             };
 
             environment.variables = {
