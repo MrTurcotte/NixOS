@@ -29,11 +29,8 @@
   nix.settings = {
     cores = 8;
     max-jobs = 4;
- #   use-ccache = true;
   };
-  environment.systemPackages = with pkgs; [
-    ccache
-  ];
+
   # Environment variables for ccache and CPU optimizations
   environment.variables = {
     CCACHE_DIR = "/var/cache/ccache";
@@ -147,6 +144,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    ccache
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
