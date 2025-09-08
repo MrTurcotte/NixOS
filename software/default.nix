@@ -25,7 +25,7 @@
 #    plugins = with pkgs.obs-studio-plugins; [
 #      droidcam-obs
 #    ];
-  };
+#  };
 #  programs.appimage = {
 #    enable = true;
 #    binfmt = true;
