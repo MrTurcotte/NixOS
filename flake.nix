@@ -26,24 +26,25 @@
     nixosConfigurations = {
       valhalla = pkgs.lib.nixosSystem {
         system = system;
-        modules = [
-          ./configuration.nix
+modules = [
+  ./configuration.nix
+  {
+    environment.variables = {
+      NIX_CFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+      NIX_CXXFLAGS_COMPILE = "-O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+      NIX_LDFLAGS = "-flto";
+    };
 
-          # Inline module for Nix settings and environment variables
-          {
-            nix.settings = {
-              use-ccache = true;
-              cores = 8;       # Limit CPU usage for background builds
-              max-jobs = 4;    # Limit parallel jobs to avoid RAM saturation
-            };
+    nix.settings = {
+      use-ccache = true;
+      cores = 8;
+      max-jobs = 4;
+    };
 
-            environment.variables = {
-              CCACHE_DIR = "/var/cache/ccache";
-              CCACHE_MAXSIZE = "10G";
-            };
-          }
-        ];
-      };
+    environment.variables.CCACHE_DIR = "/var/cache/ccache";
+    environment.variables.CCACHE_MAXSIZE = "10G";
+  }
+];      };
     };
   };
 }
