@@ -45,7 +45,7 @@
 #  };
 
   environment.systemPackages = with pkgs; [
-    signal-cli
+#    signal-cli
 #    cmake
 #    opencv
 #    cudaPackages.markForCudatoolkitRootHook
