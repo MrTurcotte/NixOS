@@ -18,7 +18,7 @@
 
   hardware.nvidia = {
 
-    nvidiaPersistenced = true;
+    nvidiaPersistenced = false;
 
     # Modesetting is required.
     modesetting.enable = true;
