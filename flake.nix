@@ -13,8 +13,8 @@
         allowUnfree = true; 
         packageOverrides = self: super: {
           stdenv = super.stdenv.overrideAttrs (oldAttrs: {
-          CFLAGS = oldAttrs.CFLAGS + " ...";
-          CXXFLAGS = oldAttrs.CXXFLAGS + " ...";
+            CFLAGS = oldAttrs.CFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
+            CXXFLAGS = oldAttrs.CXXFLAGS + " -O3 -march=native -mtune=native -flto -fomit-frame-pointer";
         });
         };
 
