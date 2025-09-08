@@ -29,9 +29,11 @@
   nix.settings = {
     cores = 8;
     max-jobs = 4;
-    use-ccache = true;
+ #   use-ccache = true;
   };
-
+  environment.systemPackages = with pkgs; [
+    ccache
+  ];
   # Environment variables for ccache and CPU optimizations
   environment.variables = {
     CCACHE_DIR = "/var/cache/ccache";
