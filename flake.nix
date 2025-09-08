@@ -27,6 +27,7 @@
         modules = [
           ./configuration.nix
         ];
+        pkgs = pkgs;
       };
     };
   };
