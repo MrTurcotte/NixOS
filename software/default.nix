@@ -56,6 +56,7 @@
 #    libidn2
 #    appimage-run
 #    digikam
+    discord-ptb
     bc
     ghostscript
     pdfsandwich
