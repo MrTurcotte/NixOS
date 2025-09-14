@@ -56,9 +56,6 @@
 #    libidn2
 #    appimage-run
 #    digikam
-kdePackages.kaccounts-integration
-kdePackages.kaccounts-providers
-kdePackages.kio-gdrive
     discord-ptb
     bc
     ghostscript
