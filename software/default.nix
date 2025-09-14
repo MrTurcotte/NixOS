@@ -58,6 +58,7 @@
 #    digikam
 kdePackages.kaccounts-integration
 kdePackages.kaccounts-providers
+kdePackages.kio-gdrive
     discord-ptb
     bc
     ghostscript
