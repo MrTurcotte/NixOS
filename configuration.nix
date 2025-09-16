@@ -26,10 +26,10 @@
     '';
   };
 
-  nix.settings = {
-    cores = 8;
-    max-jobs = 4;
-  };
+#  nix.settings = {
+#    cores = 8;
+#    max-jobs = 4;
+#  };
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 25;
