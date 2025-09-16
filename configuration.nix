@@ -22,6 +22,7 @@
     ];
 
 boot.loader.systemd-boot.configurationLimit = 3;
+services.fstrim.enable = true;
 
   nix = {
     extraOptions = ''
