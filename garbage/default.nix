@@ -6,7 +6,6 @@
   nix.gc = {
     automatic = true;
     dates = "daily";
-    interval = { Hour = 1; Minute = 30; };
     options = "--delete-older-than 7d";
   };
 }
