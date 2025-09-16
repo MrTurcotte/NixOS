@@ -13,12 +13,15 @@
       ./hyprland
       ./fonts
       ./printing
+      ./garbage
 #      ./ollama
 #      ./vm
 #      ./3dprint
 #      ./stirling
 #      ./zoom
     ];
+
+boot.loader.systemd-boot.configurationLimit = 3;
 
   nix = {
     extraOptions = ''
