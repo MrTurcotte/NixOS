@@ -14,6 +14,7 @@
       ./fonts
       ./printing
       ./garbage
+      ./samba
 #      ./ollama
 #      ./vm
 #      ./3dprint
