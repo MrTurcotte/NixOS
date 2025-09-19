@@ -1,3 +1,7 @@
+{ config, pkgs, lib, ... }:
+
+{
+
 services.samba = {
   enable = true;
   securityType = "user";
@@ -46,3 +50,5 @@ services.samba-wsdd = {
 
 networking.firewall.enable = true;
 networking.firewall.allowPing = true;
+
+}

@@ -56,6 +56,7 @@
 #    libidn2
 #    appimage-run
 #    digikam
+nixfmt-rfc-style
     discord-ptb
     bc
     ghostscript
