@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
 
   # Enable OpenGL
@@ -14,7 +19,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
 
@@ -25,7 +30,7 @@
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -35,48 +40,47 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     open = true;
 
     # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-#    package = config.boot.kernelPackages.nvidiaPackages.beta;
-#    package = config.boot.kernelPackages.nvidiaPackages.production;
-#    package = config.boot.kernelPackages.nvidiaPackages.latest;
-#    package = nvidiaPackage;
-#    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-#      version = "575.64.05";
-#      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-#      sha256_aarch64 = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-#      openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-#      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-#      persistencedSha256 = "sha256-2g5z7Pu8u2EiAh5givP5Q1Y4zk4Cbb06W37rf768NFU=";
-#    };
-#    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-#      version = "580.65.06";
-#      openSha256 = "sha256-BKe6LQ1ZSrHUOSoV6UCksUE0+TIa0WcCHZv4lagfIgA=";
-#      persistencedSha256 = "sha256-ETRfj2/kPbKYX1NzE0dGr/ulMuzbICIpceXdCRDkAxA=";
-#      settingsSha256 = "sha256-9PWmj9qG/Ms8Ol5vLQD3Dlhuw4iaFtVHNC0hSyMCU24=";
-#      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
-#      sha256_aarch64 = "sha256-4CrNwNINSlQapQJr/dsbm0/GvGSuOwT/nLnIknAM+cQ=";
-#    };
-
+    #    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    #    package = config.boot.kernelPackages.nvidiaPackages.production;
+    #    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    #    package = nvidiaPackage;
+    #    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    #      version = "575.64.05";
+    #      sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+    #      sha256_aarch64 = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+    #      openSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+    #      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+    #      persistencedSha256 = "sha256-2g5z7Pu8u2EiAh5givP5Q1Y4zk4Cbb06W37rf768NFU=";
+    #    };
+    #    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    #      version = "580.65.06";
+    #      openSha256 = "sha256-BKe6LQ1ZSrHUOSoV6UCksUE0+TIa0WcCHZv4lagfIgA=";
+    #      persistencedSha256 = "sha256-ETRfj2/kPbKYX1NzE0dGr/ulMuzbICIpceXdCRDkAxA=";
+    #      settingsSha256 = "sha256-9PWmj9qG/Ms8Ol5vLQD3Dlhuw4iaFtVHNC0hSyMCU24=";
+    #      sha256_64bit = "sha256-BLEIZ69YXnZc+/3POe1fS9ESN1vrqwFy6qGHxqpQJP8=";
+    #      sha256_aarch64 = "sha256-4CrNwNINSlQapQJr/dsbm0/GvGSuOwT/nLnIknAM+cQ=";
+    #    };
 
   };
 
   environment.sessionVariables = {
-#    KWIN_DRM_ALLOW_NVIDIA_COLORSPACE = "1";
+    #    KWIN_DRM_ALLOW_NVIDIA_COLORSPACE = "1";
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-#    OBS_USE_EGL = "1";
-#    QT_QPA_PLATFORM = "wayland;xcb";
-#    SDL_VIDEODRIVER = "wayland";
+    #    OBS_USE_EGL = "1";
+    #    QT_QPA_PLATFORM = "wayland;xcb";
+    #    SDL_VIDEODRIVER = "wayland";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
@@ -89,10 +93,9 @@
   ];
 
   boot.initrd.availableKernelModules = [
-    "nvidia_drm" "nvidia_modeset" "nvidia"
-  ];  #nvidia_uvm
-
-
+    "nvidia_drm"
+    "nvidia_modeset"
+    "nvidia"
+  ]; # nvidia_uvm
 
 }
-

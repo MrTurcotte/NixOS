@@ -5,22 +5,25 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
   };
 
-  outputs = { self, nixpkgs }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      system = system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-  in {
-    nixosConfigurations = {
-      valhalla = nixpkgs.lib.nixosSystem {
+  outputs =
+    { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         system = system;
-        modules = [
-          ./configuration.nix
-        ];
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in
+    {
+      nixosConfigurations = {
+        valhalla = nixpkgs.lib.nixosSystem {
+          system = system;
+          modules = [
+            ./configuration.nix
+          ];
+        };
       };
     };
-  };
 }

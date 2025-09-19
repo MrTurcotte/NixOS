@@ -1,4 +1,9 @@
-{pkg, config, lib, ...}:
+{
+  pkg,
+  config,
+  lib,
+  ...
+}:
 
 {
   boot.loader.systemd-boot.configurationLimit = 3;

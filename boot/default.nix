@@ -1,4 +1,9 @@
-{lib, config, pkg, ...}:
+{
+  lib,
+  config,
+  pkg,
+  ...
+}:
 
 {
   boot.consoleLogLevel = 3;

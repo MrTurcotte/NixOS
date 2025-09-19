@@ -5,25 +5,25 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nvidia
-      ./software
-      ./hyprland
-      ./fonts
-      ./printing
-      ./garbage
-      ./samba
-#      ./ollama
-#      ./vm
-#      ./3dprint
-#      ./stirling
-#      ./zoom
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./nvidia
+    ./software
+    ./hyprland
+    ./fonts
+    ./printing
+    ./garbage
+    ./samba
+    #      ./ollama
+    #      ./vm
+    #      ./3dprint
+    #      ./stirling
+    #      ./zoom
+  ];
 
-boot.loader.systemd-boot.configurationLimit = 3;
-services.fstrim.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 3;
+  services.fstrim.enable = true;
 
   nix = {
     extraOptions = ''
@@ -31,10 +31,10 @@ services.fstrim.enable = true;
     '';
   };
 
-#  nix.settings = {
-#    cores = 8;
-#    max-jobs = 4;
-#  };
+  #  nix.settings = {
+  #    cores = 8;
+  #    max-jobs = 4;
+  #  };
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 25;
@@ -46,9 +46,9 @@ services.fstrim.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-#  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages;
- 
+
   networking.hostName = "valhalla"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -62,7 +62,6 @@ services.fstrim.enable = true;
   # Enable bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
@@ -110,19 +109,19 @@ services.fstrim.enable = true;
   users.users.dave = {
     isNormalUser = true;
     description = "David Turcotte";
-    extraGroups = [ 
-      "networkmanager" 
+    extraGroups = [
+      "networkmanager"
       "wheel"
       "adbusers"
       "scanner"
-      "lp" 
+      "lp"
       "docker"
       "video"
       "audio"
     ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
