@@ -47,6 +47,11 @@
   #  };
 
   environment.systemPackages = with pkgs; [
+    qrcode
+    qrencode
+    qrcodegen
+    qrcodegencpp
+
     #    signal-cli
     #    cmake
     #    opencv
