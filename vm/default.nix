@@ -6,7 +6,7 @@
   programs.dconf.enable = true;
 
   # Add user to libvirtd group
-  users.users.dave.extraGroups = [ "libvirtd" ];
+  users.users.dave.extraGroups = [ "libvirtd docker" ];
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
@@ -31,6 +31,7 @@
       };
     };
     spiceUSBRedirection.enable = true;
+    docker.enable
   };
   services.spice-vdagentd.enable = true;
 
