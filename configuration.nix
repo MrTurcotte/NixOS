@@ -15,8 +15,8 @@
     ./printing
     ./garbage
     ./samba
+    ./vm
     #      ./ollama
-    #      ./vm
     #      ./3dprint
     #      ./stirling
     #      ./zoom

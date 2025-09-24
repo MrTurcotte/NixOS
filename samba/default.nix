@@ -6,10 +6,10 @@
 }:
 
 {
-
+# services.samba.settings.global.security
   services.samba = {
     enable = true;
-    securityType = "user";
+#    securityType = "user";
     openFirewall = true;
     settings = {
       global = {
