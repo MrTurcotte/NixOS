@@ -26,6 +26,8 @@
   boot.loader.systemd-boot.configurationLimit = 3;
   services.fstrim.enable = true;
 
+  hardware.enableAllFirmware = true;
+
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
