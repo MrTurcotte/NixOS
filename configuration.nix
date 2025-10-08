@@ -16,7 +16,7 @@
     ./garbage
     ./samba
     ./vm
-    ./cosmic
+#    ./cosmic
     #      ./ollama
     #      ./3dprint
     #      ./stirling
