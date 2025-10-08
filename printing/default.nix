@@ -16,7 +16,7 @@
   };
 
   services.printing.drivers = [
-#    pkgs.brlaser
+    pkgs.brlaser
     pkgs.brgenml1lpr
     pkgs.brgenml1cupswrapper
     pkgs.cups-brother-hl3170cdw
